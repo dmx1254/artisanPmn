@@ -2,8 +2,14 @@ import React, { useRef, useState } from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Swiper from "react-native-swiper";
 import { DotActiveSwipe, DotSwipe } from "./SwiperDot";
+import { useRouter } from "expo-router";
+
+import useStore from "@/app/lib/store/manage";
 
 const Swip = () => {
+  const router = useRouter();
+  const { updateStartup } = useStore();
+
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const tabLength = 4;
   const swiperRef = useRef<Swiper>(null);
@@ -11,6 +17,9 @@ const Swip = () => {
   const handleChangeIndex = () => {
     if (activeIndex < tabLength - 1) {
       swiperRef.current?.scrollBy(1);
+    } else {
+      updateStartup(true);
+      router.push("/(root)/(tabs)");
     }
   };
 
@@ -121,13 +130,9 @@ const Swip = () => {
 
       <TouchableOpacity
         activeOpacity={0.5}
-        className="bg-primary-btn p-4 rounded-full w-full max-w-52"
+        className="bg-primary-btn p-4 rounded-full w-full max-w-56"
         onPress={handleChangeIndex}
-        disabled={activeIndex === tabLength - 1}
-        style={[
-          styles.button,
-          { opacity: activeIndex === tabLength - 1 ? 0.5 : 1 },
-        ]}
+        style={[styles.button]}
       >
         <Text className="font-rubik-medium text-white text-2xl text-center">
           Suivant
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
     paddingBottom: 80, // Espace pour le bouton
   },
   pagination: {
-    bottom: 100,
+    bottom: 80,
   },
   button: {
     position: "absolute",

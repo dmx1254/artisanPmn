@@ -4,7 +4,7 @@
     "slug": "sunuy-artisan",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/pmn/logo2.png",
+    "icon": "./assets/images/pmn/pmnLogo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/pmn/logo2.png",
+        "foregroundImage": "./assets/images/pmn/pmnLogo.png",
         "backgroundColor": "#ffffff"
       }
     },
@@ -27,7 +27,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/pmn/logo.png",
+          "image": "./assets/images/pmn/splash.png",
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "enableFullScreenImage_legacy": true

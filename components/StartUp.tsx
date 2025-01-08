@@ -8,8 +8,17 @@ import {
 } from "react-native";
 import React from "react";
 import Swip from "./swiper/Swip";
+import { Redirect, useRouter } from "expo-router";
+import useStore from "@/app/lib/store/manage";
 
 const StartUp = () => {
+  const router = useRouter();
+  const { updateStartup } = useStore();
+
+  const handleUpdateStartup = () => {
+    updateStartup(true);
+    router.push("/(root)/(tabs)");
+  };
   return (
     <SafeAreaView className="flex-1 bg-white">
       <StatusBar backgroundColor="#000" hidden={false} />
@@ -17,6 +26,7 @@ const StartUp = () => {
       <TouchableOpacity
         className="flex items-end justify-end py-2 px-6"
         activeOpacity={0.5}
+        onPress={handleUpdateStartup}
       >
         <Text className="text-dark font-rubik-light text-2xl">Passer</Text>
       </TouchableOpacity>
