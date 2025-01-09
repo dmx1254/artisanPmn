@@ -16,7 +16,8 @@ module.exports = {
       colors: {
         primary: {
           header: "#f1f1f0",
-          btn: "#28A745"
+          btn: "#28A745",
+          bgGray: "#f1f1ef",
         },
       },
     },
